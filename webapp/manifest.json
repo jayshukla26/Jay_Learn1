@@ -1,0 +1,175 @@
+{
+	"_version": "1.9.0",
+	"sap.app": {
+		"id": "acc.fin.ar",
+		"type": "application",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"tags": {
+			"keywords": [
+				"{{fruit}}"
+			]
+		},
+		"ach": "FIN-AR-ACC",
+		"dataSources": {
+			"YTCS825448_EPM_SRV": {
+				"uri": "/sap/opu/odata/sap/YTCS825448_EPM_SRV/",
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				}
+			}
+		},
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponent",
+			"version": "0.0.0"
+		}
+	},
+	"sap.ui": {
+		"technology": "UI5",
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_bluecrystal",
+			"sap_belize"
+		],
+		"icons": {
+			"icon": "sap-icon://along-stacked-chart"
+		}
+	},
+	"sap.ui5": {
+		"dependencies": {
+			"minUI5Version": "1.70.10",
+			"libs": {
+				"sap.m": {
+					"minVersion": ""
+				},
+				"sap.ui.layout": {
+					"minVersion": ""
+				}
+			}
+		},
+		"contentDensities": {
+			"compact": false,
+			"cozy": true
+		},
+		"resources": {
+			"css": [
+				{
+					"uri": "style/myfile.css",
+					"id": ""
+				}
+			]
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {},
+				"uri": "i18n/i18n.properties",
+				"preload": true,
+				"async": true
+			},
+			"local": {
+				"type": "sap.ui.model.json.JSONModel",
+				"settings": {},
+				"uri": "models/mockdata/demoData.json",
+				"preload": false
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"dataSource": "YTCS825448_EPM_SRV",
+				"preload": true
+			}
+		},
+		"rootView": {
+			"viewName": "acc.fin.ar.view.App",
+			"type": "XML",
+			"id": "idAppCon"
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"viewPath": "acc.fin.ar.view",
+				"controlId": "idAppCon"
+			},
+			"routes": [
+				{
+					"pattern": "",
+					"name": "masterview",
+					"target": [
+						"masterview",
+						"detview"
+					]
+				},
+				{
+					"name": "detailproduct",
+					"pattern": "fruitdetail/{fruitid}",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"masterview",
+						"detailproduct"
+					]
+				},
+				{
+					"name": "Add",
+					"pattern": "add",
+					"titleTarget": "",
+					"greedy": false,
+					"target": [
+						"masterview",
+						"Add"
+					]
+				}
+			],
+			"targets": {
+				"masterview": {
+					"viewName": "View1",
+					"viewId": "idView1",
+					"controlAggregation": "masterPages"
+				},
+				"detview": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Empty",
+					"title": "Empty",
+					"viewId": "idEmpty",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"
+				},
+				"detailproduct": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "View2",
+					"viewId": "idView2",
+					"title": "Product Detail ",
+					"controlAggregation": "detailPages"
+				},
+				"Add": {
+					"viewType": "XML",
+					"transition": "slide",
+					"clearAggregation": true,
+					"viewName": "Add",
+					"title": "Add",
+					"viewId": "idAdd",
+					"viewLevel": 1,
+					"controlAggregation": "detailPages"
+				}
+			}
+		}
+	},
+	"sap.platform.abap": {
+		"uri": "/sap/bc/ui5_ui5/sap/ytcs825448_f1/webapp",
+		"_version": "1.1.0"
+	}
+}

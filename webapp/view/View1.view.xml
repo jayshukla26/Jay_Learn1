@@ -1,0 +1,61 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" controllerName="acc.fin.ar.controller.View1"
+	xmlns:html="http://www.w3.org/1999/xhtml">
+			<Page title="Fruits">
+				<headerContent>
+					<Button icon="sap-icon://action" press="onNext"></Button>
+				</headerContent>
+				<content>
+					<SearchField enabled="true" search="onSearch"></SearchField>
+					<!--<Button text="Go to Next" press="onNext"></Button>-->
+					<List items="{
+						path: '/ProductCollection',
+						sorter: { path : 'NAME' }
+					}" id="myFruits" growing="true" growingThreshold="5" mode="SingleSelectMaster" selectionChange="onNextItem" 
+					delete="OnDelete"  itemPress="onNextItem" >
+						<items>
+							<!--//type="Navigation" -->
+							<ObjectListItem  intro="{CATEGORY}" title="{NAME}" 
+											number="{PRICE}" numberUnit="{CURRENCY_CODE}"
+											icon="sap-icon://product">
+									<firstStatus>
+										<ObjectStatus text="{SUPPLIER_NAME}" state="{= ${SUPPLIER_NAME} === 'SAP' ? 'Success' : 'Error' }">
+											
+										</ObjectStatus>
+									</firstStatus>
+							</ObjectListItem>
+							<!--<DisplayListItem label="Apple" value="Once a Day"></DisplayListItem>-->
+							<!--<StandardListItem icon="https://images-na.ssl-images-amazon.com/images/I/41Y2eoT3OTL._SX425_.jpg" description="Potassium" title="Banana"></StandardListItem>-->
+							<!--<InputListItem>-->
+							<!--	<content>-->
+							<!--		<HBox>-->
+							<!--			<Label text="Count?"></Label>-->
+							<!--			<Input></Input>-->
+							<!--		</HBox>-->
+							<!--	</content>-->
+							<!--</InputListItem>-->
+							<!--<ObjectListItem intro="AntiOxidant" title="Guava" number="250" numberUnit="Per Kg." icon="data:image/jpeg;base64,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">-->
+							<!--	<firstStatus>-->
+							<!--		<ObjectStatus text="Available" state="Success"></ObjectStatus>-->
+							<!--	</firstStatus>-->
+							<!--</ObjectListItem>-->
+							<!--<CustomListItem>-->
+							<!--	<content>-->
+							<!--		<Label text="COD"></Label>-->
+							<!--		<Switch selected="true"></Switch>-->
+							<!--	</content>-->
+							<!--</CustomListItem>-->
+							<!--<FeedListItem sender="Mr ABC" text="Hello, where?">-->
+								
+							<!--</FeedListItem>-->
+							<!--<ActionListItem text="Order?"></ActionListItem>-->
+						</items>				
+					</List>
+				</content>
+				<footer>
+					<Toolbar>
+						<ToolbarSpacer/>
+							<Button icon="sap-icon://add" tooltip="Add" press="onAdd"></Button>
+					</Toolbar>
+				</footer>
+			</Page>
+</mvc:View>

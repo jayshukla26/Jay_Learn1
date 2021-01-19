@@ -1,0 +1,43 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:html="http://www.w3.org/1999/xhtml"
+	controllerName="acc.fin.ar.controller.Add">
+	<App>
+		<pages>
+			<Page title="Add Product">
+				<content>
+					<sap.ui.layout.form:SimpleForm editable="true" layout="ResponsiveGridLayout" xmlns:sap.ui.layout.form="sap.ui.layout.form" id="__form0">
+						<sap.ui.layout.form:content>
+							<core:Title text="Add Product" id="__title0"/>
+							<Button text="Load Expensive" press="onExp"></Button>
+							<Label text="Product ID" id="lblProductID"/>
+							<Input width="100%" id="inpProductID" value="{localView>/productData/PRODUCT_ID}"	/>
+							<Label text="Type Code" id="lblTypeCode" />
+							<Input width="100%" id="inpTypeCode" value="{localView>/productData/TYPE_CODE}"/>
+							<Label text="Category" id="lblCategory"/>
+							<Input width="100%" id="inpCategory" value="{localView>/productData/CATEGORY}"/>
+							<Label text="Name" id="lblName"/>
+							<Input width="100%" id="inpName" value="{localView>/productData/NAME}"/>
+							<Label text="Description" id="lblDescription"/>
+							<Input width="100%" id="inpDescription" value="{localView>/productData/DESCRIPTION}"/>
+							<Label text="SupplierId" id="lblSupplierId"/>
+							<Input width="100%" id="inpSupplierId" value="{localView>/productData/SUPPLIER_ID}" showValueHelp="true" valueHelpRequest="onValueHelp"/>
+							<Label text="Supplier Name" id="lblSupplierName"/>
+							<Input width="100%" id="inpSupplierName" value="{localView>/productData/SUPPLIER_NAME}"/>
+							<Label text="Price" id="lblPrice"/>
+							<Input width="100%" id="inpPrice" value="{localView>/productData/PRICE}"/>
+							<Label text="Currency Code" id="lblCurrency"/>
+							<Input width="100%" id="inpCurrency" value="{localView>/productData/CURRENCY_CODE}"/>
+							<Label text="Unit" id="lblUnit"/>
+							<Input width="100%" id="inpUnit" value="{localView>/productData/DIM_UNIT}"/>
+						</sap.ui.layout.form:content>
+					</sap.ui.layout.form:SimpleForm>
+				</content>
+				<footer>
+					<Toolbar>
+					<ToolbarSpacer />
+					<Button text="Save" type="accept" press="onSave"></Button>
+					</Toolbar>
+				</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

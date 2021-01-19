@@ -1,0 +1,45 @@
+<core:FragmentDefinition xmlns:core="sap.ui.core" xmlns="sap.m" xmlns:f="sap.ui.layout.form">
+<!--<Table items="{/suppliers}" id="suppliersTab">-->
+<Table items="{/SupplierCollection}" id="suppliersTab">
+	<headerToolbar>
+		<Toolbar>
+			<Title text="Search Supplier" width="35%"></Title>
+			<ToolbarSpacer></ToolbarSpacer>
+			<SearchField search="onSupplierSearch"></SearchField>
+			<Button icon="sap-icon://filter" tooltip="Filter by Supplier" press="onFilter	"></Button>
+		</Toolbar>
+	</headerToolbar>
+	<columns>
+		<Column >
+			<header>
+				<Text text="ID"></Text>
+			</header>
+		</Column>
+		<Column >
+			<header>
+				<Text text="City"></Text>
+			</header>
+		</Column>
+		<Column minScreenWidth="tablet" demandPopin="true">
+			<header>
+				<Text text="NAme"></Text>
+			</header>
+		</Column>
+		<Column minScreenWidth="tablet" demandPopin="true">
+			<header>
+				<Text text="Type"></Text>
+			</header>
+		</Column>
+	</columns>
+	<items>
+		<ColumnListItem>
+			<cells>
+				<Text text="{BP_ID}"></Text>
+				<Input id="inpCity" value="{COUNTRY}" showValueHelp="true" valueHelpRequest="onValueHelp"></Input>
+				<Text text="{COMPANY_NAME}"></Text> 
+				<Text text="{BP_ROLE}"></Text>
+			</cells>
+		</ColumnListItem>
+	</items>
+</Table>
+</core:FragmentDefinition>
