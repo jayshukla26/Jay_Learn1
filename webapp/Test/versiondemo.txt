@@ -1,2 +1,7 @@
+<<<<<<< HEAD
 Test Line 1
 123
+=======
+Test Line 1 
+Wow
+>>>>>>> branch 'demo' of https://github.com/jayshukla26/Jay_Learn1.git
