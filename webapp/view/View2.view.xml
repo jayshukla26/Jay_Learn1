@@ -17,7 +17,7 @@
 						</content>
 					</IconTabFilter>
 					<IconTabFilter key="cities" text="Cities" icon="sap-icon://functional-location">
-						<content>
+						<content> 
 							<core:Fragment fragmentName="acc.fin.ar.fragments.cities" type="XML"></core:Fragment>
 						</content>
 					</IconTabFilter>

@@ -13,7 +13,7 @@ sap.ui.define(["sap/ui/core/UIComponent",
 		// 	var oAppView = new sap.ui.view({
 		// 		viewName: "acc.fin.ar.view.App",
 		// 		type: "XML"
-		// 	});
+		// 	}); 
 			
 		// 	//var oFruitModel = Models.createFruitModel();
 		// 	//oAppView.setModel(oFruitModel);
